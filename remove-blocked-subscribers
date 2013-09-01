@@ -1,0 +1,19 @@
+ // This code allows you to remove blocked subscribers from your public page or group on vk.com
+ //usage -
+ // 1. go to http://vk.com/%your public page url%/?act=users
+ // 2. scroll down to load all subscribers
+ // 3. run folowing code in the console of your browser (not IE ;) )
+ 
+ var user_img = document.getElementsByClassName('gedit_user_img');
+    for (key in user_img) {
+        var current_user = user_img[key];
+        var all_obj = null;
+        if (typeof(current_user) == "object" && typeof(current_user) != undefined) {
+            all_obj = current_user.parentNode.parentNode.parentNode;
+            if (current_user.getAttribute('src') == '/images/deactivated_100.gif') {
+                var delete_btn = all_obj.getElementsByClassName('gedit_user_action');
+                delete_btn[1].onclick();
+            }
+
+        }
+    }
